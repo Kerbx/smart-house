@@ -1,12 +1,18 @@
-import RPi.GPIO as GPIO
 import flask
-
-
+import pin
+    
+    
 app = flask.Flask(__name__)
+pin = pin.Pin()
 
 
-@app.route('/')
+@app.route('/', methods=['GET', 'POST'])
 def index():
+    if flask.request.method == 'POST':
+        if flask.request.form.get('light1') == 'on':
+            pin.onPin(5)
+        if flask.request.form.get('light1') == 'off':
+            pin.offPin(5)
     return flask.render_template('index.html')
 
 
