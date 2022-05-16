@@ -13,6 +13,11 @@ def index():
             pin.onPin(5)
         if flask.request.form.get('light1') == 'off':
             pin.offPin(5)
+        if flask.request.form.get('light2') == 'off':
+            pin.offPin(6)
+        if flask.request.form.get('light2') == 'on':
+            pin.onPin(6)
+            
     return flask.render_template('index.html')
 
 

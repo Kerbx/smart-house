@@ -14,7 +14,7 @@ class Pin():
 
         GPIO.setmode(GPIO.BCM)
         for pin in self.pins:
-            GPIO.setup(pin, GPIO.OUTPUT)
+            GPIO.setup(pin, GPIO.OUT)
             
                     
     def offAll(self) -> None:
